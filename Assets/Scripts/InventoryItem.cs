@@ -8,13 +8,23 @@ public class InventoryItem : MonoBehaviour,
     IDragHandler,
     IEndDragHandler
 {
-    [Header("UI")]
     public Image image;
+
+    [HideInInspector]
+    public ItemData item;
 
     [HideInInspector]
     public Transform parentAfterDrag;
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public void InitialiseItem(ItemData newItem)
+    {
+        item = newItem;
+
+        image.sprite = item.icon;
+    }
+
+    public void OnBeginDrag(
+        PointerEventData eventData)
     {
         image.raycastTarget = false;
 
@@ -23,12 +33,15 @@ public class InventoryItem : MonoBehaviour,
         transform.SetParent(transform.root);
     }
 
-    public void OnDrag(PointerEventData eventData)
+    public void OnDrag(
+        PointerEventData eventData)
     {
-        transform.position = Mouse.current.position.ReadValue();
+        transform.position =
+            Mouse.current.position.ReadValue();
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public void OnEndDrag(
+        PointerEventData eventData)
     {
         image.raycastTarget = true;
 
