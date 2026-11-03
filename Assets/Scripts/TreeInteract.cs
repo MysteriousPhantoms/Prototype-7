@@ -10,9 +10,12 @@ public class TreeInteract : MonoBehaviour
 
     private int hits = 0;
 
-    void Update()
+    private void Update()
     {
         if (!Keyboard.current.eKey.wasPressedThisFrame)
+            return;
+
+        if (ToolManager.Instance.selectedTool != ToolType.Axe)
             return;
 
         GameObject player =
@@ -21,18 +24,12 @@ public class TreeInteract : MonoBehaviour
         if (player == null)
             return;
 
-        PlayerInventory inventory =
-            player.GetComponent<PlayerInventory>();
-
-        if (!inventory.hasAxe)
-            return;
-
         float distance =
             Vector2.Distance(
                 player.transform.position,
                 transform.position);
 
-        if (distance > 1.25f)
+        if (distance > 1.5f)
             return;
 
         hits++;

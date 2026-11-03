@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class PickaxePickup : MonoBehaviour
 {
+    public ItemData pickaxeItem;
+
     private bool playerNearby;
 
     private void Update()
@@ -10,10 +12,10 @@ public class PickaxePickup : MonoBehaviour
         if (playerNearby &&
             Keyboard.current.eKey.wasPressedThisFrame)
         {
-            GameObject player =
-                GameObject.FindGameObjectWithTag("Player");
+            InventoryManager inventory =
+                FindObjectOfType<InventoryManager>();
 
-            player.GetComponent<PlayerInventory>().hasPickaxe = true;
+            inventory.AddItem(pickaxeItem);
 
             Destroy(gameObject);
         }

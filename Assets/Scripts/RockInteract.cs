@@ -10,21 +10,18 @@ public class RockInteract : MonoBehaviour
 
     private int hits = 0;
 
-    void Update()
+    private void Update()
     {
         if (!Keyboard.current.eKey.wasPressedThisFrame)
+            return;
+
+        if (ToolManager.Instance.selectedTool != ToolType.Pickaxe)
             return;
 
         GameObject player =
             GameObject.FindGameObjectWithTag("Player");
 
         if (player == null)
-            return;
-
-        PlayerInventory inventory =
-            player.GetComponent<PlayerInventory>();
-
-        if (!inventory.hasPickaxe)
             return;
 
         float distance =

@@ -105,6 +105,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7131557d64fd754d8f540587425b0b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WoodPickup
+  woodItem: {fileID: 11400000, guid: 660d801cdd98a60469241831ba39843e, type: 2}
 --- !u!61 &-5065040586772642054
 BoxCollider2D:
   m_ObjectHideFlags: 0

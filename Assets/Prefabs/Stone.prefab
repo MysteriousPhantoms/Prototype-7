@@ -104,3 +104,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc65f7e806fc694eba702d51c26b166, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StonePickup
+  stoneItem: {fileID: 11400000, guid: a2be557c6cd928343b9a9ede29de1231, type: 2}

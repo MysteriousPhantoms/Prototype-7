@@ -3,6 +3,8 @@ using UnityEngine.InputSystem;
 
 public class WoodPickup : MonoBehaviour
 {
+    public ItemData woodItem;
+
     private void Update()
     {
         GameObject player =
@@ -11,22 +13,19 @@ public class WoodPickup : MonoBehaviour
         if (player == null)
             return;
 
-        float distance =
-            Vector2.Distance(
-                player.transform.position,
-                transform.position);
+        float distance = Vector2.Distance(
+                transform.position,
+                player.transform.position);
 
-        if (distance <= 1.5f)
+        if (distance <= 1.5f &&
+            Keyboard.current.eKey.wasPressedThisFrame)
         {
-            if (Keyboard.current.eKey.wasPressedThisFrame)
-            {
-                Debug.Log("Collected Wood");
+            InventoryManager inventory =
+                FindObjectOfType<InventoryManager>();
 
-                player.GetComponent<PlayerInventory>()
-                    .AddWood(1);
+            inventory.AddItem(woodItem);
 
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
     }
 }
