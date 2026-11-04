@@ -23,9 +23,14 @@ public class InventoryItem :
     [HideInInspector]
     public Transform parentAfterDrag;
 
+    private Transform originalParent;
+
+    private bool dragging;
+
     public void InitialiseItem(ItemData newItem)
     {
         item = newItem;
+
         image.sprite = item.icon;
 
         RefreshCount();
@@ -34,6 +39,7 @@ public class InventoryItem :
     public void AddAmount(int amount)
     {
         count += amount;
+
         RefreshCount();
     }
 
@@ -42,28 +48,36 @@ public class InventoryItem :
         if (countText == null)
             return;
 
-        if (count > 1)
-        {
-            countText.text = count.ToString();
-        }
-        else
-        {
-            countText.text = "";
-        }
+        countText.text =
+            count > 1
+                ? count.ToString()
+                : "";
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        ToolManager.Instance.SelectTool(item);
+        if (dragging)
+            return;
+
+        InventorySlot slot =
+            GetComponentInParent<InventorySlot>();
+
+        ToolManager.Instance.SelectTool(item, slot);
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
+        dragging = true;
+
         image.raycastTarget = false;
 
-        parentAfterDrag = transform.parent;
+        originalParent = transform.parent;
 
-        transform.SetParent(transform.root);
+        parentAfterDrag = originalParent;
+
+        transform.SetParent(
+            GetComponentInParent<Canvas>().transform
+        );
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -74,8 +88,12 @@ public class InventoryItem :
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        dragging = false;
+
         image.raycastTarget = true;
 
         transform.SetParent(parentAfterDrag);
+
+        transform.localPosition = Vector3.zero;
     }
 }

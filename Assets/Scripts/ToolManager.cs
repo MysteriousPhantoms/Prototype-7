@@ -6,6 +6,8 @@ public class ToolManager : MonoBehaviour
 
     public ToolType selectedTool = ToolType.None;
 
+    private InventorySlot currentSelectedSlot;
+
     private void Awake()
     {
         if (Instance == null)
@@ -18,16 +20,25 @@ public class ToolManager : MonoBehaviour
         }
     }
 
-    public void SelectTool(ItemData item)
+    public void SelectTool(ItemData item, InventorySlot slot)
     {
         if (item == null)
             return;
 
-        if (item.itemType == ItemType.Tool)
-        {
-            selectedTool = item.toolType;
+        if (item.itemType != ItemType.Tool)
+            return;
 
-            Debug.Log("Selected Tool: " + selectedTool);
+        if (currentSelectedSlot != null)
+        {
+            currentSelectedSlot.Deselect();
         }
+
+        currentSelectedSlot = slot;
+
+        currentSelectedSlot.Select();
+
+        selectedTool = item.toolType;
+
+        Debug.Log("Selected Tool: " + selectedTool);
     }
 }
