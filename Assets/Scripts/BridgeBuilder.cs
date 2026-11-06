@@ -6,9 +6,11 @@ public class BridgeBuilder : MonoBehaviour
     public GameObject bridgeToBuild;
     public GameObject bridgeBlocker;
 
+    public ItemData woodItem;
+
     public int woodCost = 1;
 
-    void Update()
+    private void Update()
     {
         if (!Keyboard.current.eKey.wasPressedThisFrame)
             return;
@@ -16,8 +18,8 @@ public class BridgeBuilder : MonoBehaviour
         GameObject player =
             GameObject.FindGameObjectWithTag("Player");
 
-        PlayerInventory inventory =
-            player.GetComponent<PlayerInventory>();
+        if (player == null)
+            return;
 
         float distance =
             Vector2.Distance(
@@ -27,11 +29,51 @@ public class BridgeBuilder : MonoBehaviour
         if (distance > 1.5f)
             return;
 
-        if (inventory.wood < woodCost)
+        InventoryManager inventory =
+            InventoryManager.Instance;
+
+        if (inventory == null)
             return;
 
-        inventory.wood -= woodCost;
-        inventory.woodText.text = inventory.wood.ToString();
+        InventoryItem woodStack = null;
+
+        foreach (InventorySlot slot in inventory.inventorySlots)
+        {
+            if (slot.currentItem != null &&
+                slot.currentItem.item == woodItem)
+            {
+                woodStack = slot.currentItem;
+                break;
+            }
+        }
+
+        if (woodStack == null)
+        {
+            Debug.Log("No Wood Found");
+            return;
+        }
+
+        if (woodStack.count < woodCost)
+        {
+            Debug.Log("Not Enough Wood");
+            return;
+        }
+
+        woodStack.count -= woodCost;
+        woodStack.RefreshCount();
+
+        if (woodStack.count <= 0)
+        {
+            InventorySlot slot =
+                woodStack.GetComponentInParent<InventorySlot>();
+
+            if (slot != null)
+            {
+                slot.currentItem = null;
+            }
+
+            Destroy(woodStack.gameObject);
+        }
 
         bridgeToBuild.SetActive(true);
 

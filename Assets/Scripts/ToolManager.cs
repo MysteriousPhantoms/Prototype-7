@@ -28,6 +28,20 @@ public class ToolManager : MonoBehaviour
         if (item.itemType != ItemType.Tool)
             return;
 
+        // Click selected tool again = unequip
+        if (currentSelectedSlot == slot)
+        {
+            currentSelectedSlot.Deselect();
+
+            currentSelectedSlot = null;
+
+            selectedTool = ToolType.None;
+
+            Debug.Log("Tool Unequipped");
+
+            return;
+        }
+
         if (currentSelectedSlot != null)
         {
             currentSelectedSlot.Deselect();
@@ -40,5 +54,19 @@ public class ToolManager : MonoBehaviour
         selectedTool = item.toolType;
 
         Debug.Log("Selected Tool: " + selectedTool);
+    }
+
+    public void UnequipTool()
+    {
+        if (currentSelectedSlot != null)
+        {
+            currentSelectedSlot.Deselect();
+
+            currentSelectedSlot = null;
+        }
+
+        selectedTool = ToolType.None;
+
+        Debug.Log("Tool Unequipped");
     }
 }

@@ -14,23 +14,21 @@ public class InventoryItem :
     public Image image;
     public TextMeshProUGUI countText;
 
-    [HideInInspector]
-    public ItemData item;
+    [HideInInspector] public ItemData item;
+    [HideInInspector] public int count = 1;
+    [HideInInspector] public Transform parentAfterDrag;
 
-    [HideInInspector]
-    public int count = 1;
-
-    [HideInInspector]
-    public Transform parentAfterDrag;
-
-    private Transform originalParent;
-
+    private CanvasGroup canvasGroup;
     private bool dragging;
+
+    private void Awake()
+    {
+        canvasGroup = GetComponent<CanvasGroup>();
+    }
 
     public void InitialiseItem(ItemData newItem)
     {
         item = newItem;
-
         image.sprite = item.icon;
 
         RefreshCount();
@@ -39,7 +37,6 @@ public class InventoryItem :
     public void AddAmount(int amount)
     {
         count += amount;
-
         RefreshCount();
     }
 
@@ -48,10 +45,9 @@ public class InventoryItem :
         if (countText == null)
             return;
 
-        countText.text =
-            count > 1
-                ? count.ToString()
-                : "";
+        countText.text = count > 1
+            ? count.ToString()
+            : "";
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -69,15 +65,13 @@ public class InventoryItem :
     {
         dragging = true;
 
-        image.raycastTarget = false;
-
-        originalParent = transform.parent;
-
-        parentAfterDrag = originalParent;
+        parentAfterDrag = transform.parent;
 
         transform.SetParent(
             GetComponentInParent<Canvas>().transform
         );
+
+        canvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -90,7 +84,7 @@ public class InventoryItem :
     {
         dragging = false;
 
-        image.raycastTarget = true;
+        canvasGroup.blocksRaycasts = true;
 
         transform.SetParent(parentAfterDrag);
 

@@ -30,13 +30,29 @@ public class InventorySlot : MonoBehaviour, IDropHandler
 
     public void OnDrop(PointerEventData eventData)
     {
-        Debug.Log("DROP WORKED ON: " + gameObject.name);
-
         InventoryItem droppedItem =
             eventData.pointerDrag.GetComponent<InventoryItem>();
 
         if (droppedItem == null)
             return;
+
+        InventorySlot oldSlot =
+            droppedItem.parentAfterDrag.GetComponent<InventorySlot>();
+
+        if (oldSlot != null)
+        {
+            // If moving the equipped tool away
+            if (ToolManager.Instance != null &&
+                ToolManager.Instance.selectedTool ==
+                droppedItem.item.toolType)
+            {
+                ToolManager.Instance.UnequipTool();
+            }
+
+            oldSlot.currentItem = null;
+        }
+
+        currentItem = droppedItem;
 
         droppedItem.parentAfterDrag = transform;
     }
