@@ -10,8 +10,13 @@ public class TreeInteract : MonoBehaviour
 
     private int hits = 0;
 
+    private bool destroyed;
+
     private void Update()
     {
+        if (destroyed)
+            return;
+
         if (!Keyboard.current.eKey.wasPressedThisFrame)
             return;
 
@@ -38,6 +43,8 @@ public class TreeInteract : MonoBehaviour
 
         if (hits >= hitsRequired)
         {
+            destroyed = true;
+
             if (woodPrefab != null)
             {
                 Instantiate(

@@ -24,7 +24,7 @@ public class ChestInteract : MonoBehaviour
         }
     }
 
-    public void ToggleChest()
+    private void ToggleChest()
     {
         opened = !opened;
 
@@ -46,9 +46,21 @@ public class ChestInteract : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player"))
+            return;
+
+        playerNearby = false;
+
+        opened = false;
+
+        if (chestUI != null)
         {
-            playerNearby = false;
+            chestUI.SetActive(false);
+        }
+
+        if (animator != null)
+        {
+            animator.SetBool("Open", false);
         }
     }
 }

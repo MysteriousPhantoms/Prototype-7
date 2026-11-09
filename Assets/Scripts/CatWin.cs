@@ -5,9 +5,12 @@ public class CatWin : MonoBehaviour
 {
     public GameObject winScreen;
 
-    void Update()
+    private void Update()
     {
         if (!Keyboard.current.eKey.wasPressedThisFrame)
+            return;
+
+        if (!FlowerInventory.Instance.hasCosmicFlower)
             return;
 
         GameObject player =
@@ -25,5 +28,7 @@ public class CatWin : MonoBehaviour
             return;
 
         winScreen.SetActive(true);
+
+        FlowerInventory.Instance.hasCosmicFlower = false;
     }
 }

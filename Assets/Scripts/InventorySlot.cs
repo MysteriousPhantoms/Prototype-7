@@ -39,16 +39,30 @@ public class InventorySlot : MonoBehaviour, IDropHandler
         InventorySlot oldSlot =
             droppedItem.parentAfterDrag.GetComponent<InventorySlot>();
 
-        if (oldSlot != null)
+        // MERGE STACKS
+        if (currentItem != null)
         {
-            // If moving the equipped tool away
-            if (ToolManager.Instance != null &&
-                ToolManager.Instance.selectedTool ==
-                droppedItem.item.toolType)
+            if (currentItem.item == droppedItem.item &&
+                currentItem.item.stackable)
             {
-                ToolManager.Instance.UnequipTool();
+                currentItem.AddAmount(droppedItem.count);
+
+                if (oldSlot != null)
+                {
+                    oldSlot.currentItem = null;
+                }
+
+                Destroy(droppedItem.gameObject);
+
+                return;
             }
 
+            return;
+        }
+
+        // NORMAL MOVE
+        if (oldSlot != null)
+        {
             oldSlot.currentItem = null;
         }
 

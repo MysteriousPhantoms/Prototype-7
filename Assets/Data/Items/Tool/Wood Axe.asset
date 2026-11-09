@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551cecc0e5dc8b24baf9d27874b33d25, type: 3}
   m_Name: Wood Axe
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
-  icon: {fileID: 0}
+  itemName: Wood Axe
+  icon: {fileID: 2804932516092296626, guid: 52505915c9c09ca45a3cefc7bec67cdd, type: 3}
   stackable: 0
   maxStack: 99
   itemType: 1
