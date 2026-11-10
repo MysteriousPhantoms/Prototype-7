@@ -5,17 +5,28 @@ public class StonePickup : MonoBehaviour
 {
     public ItemData stoneItem;
 
+    private bool canCollect;
+
     private void Update()
     {
+        if (!Keyboard.current.eKey.isPressed)
+        {
+            canCollect = true;
+        }
+
+        if (!canCollect)
+            return;
+
         GameObject player =
             GameObject.FindGameObjectWithTag("Player");
 
         if (player == null)
             return;
 
-        float distance = Vector2.Distance(
-            transform.position,
-            player.transform.position);
+        float distance =
+            Vector2.Distance(
+                transform.position,
+                player.transform.position);
 
         if (distance <= 1.5f &&
             Keyboard.current.eKey.wasPressedThisFrame)

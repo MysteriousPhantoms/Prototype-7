@@ -5,15 +5,26 @@ public class WoodPickup : MonoBehaviour
 {
     public ItemData woodItem;
 
+    private bool canCollect;
+
     private void Update()
     {
+        if (!Keyboard.current.eKey.isPressed)
+        {
+            canCollect = true;
+        }
+
+        if (!canCollect)
+            return;
+
         GameObject player =
             GameObject.FindGameObjectWithTag("Player");
 
         if (player == null)
             return;
 
-        float distance = Vector2.Distance(
+        float distance =
+            Vector2.Distance(
                 transform.position,
                 player.transform.position);
 
@@ -22,6 +33,18 @@ public class WoodPickup : MonoBehaviour
         {
             InventoryManager inventory =
                 FindObjectOfType<InventoryManager>();
+
+            if (inventory == null)
+            {
+                Debug.LogError("No InventoryManager found!");
+                return;
+            }
+
+            if (woodItem == null)
+            {
+                Debug.LogError("Wood Item not assigned!");
+                return;
+            }
 
             inventory.AddItem(woodItem);
 

@@ -144,12 +144,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2577733}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 339133835}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2577735
 MonoBehaviour:
@@ -1585,7 +1585,7 @@ Transform:
   m_GameObject: {fileID: 215060647}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 44.503, y: 48.499, z: 0}
+  m_LocalPosition: {x: 44.5, y: 48.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2078,7 +2078,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RockInteract
   animator: {fileID: 331719747}
   stonePrefab: {fileID: 2907335903635767330, guid: dd034a9266a7a5d4f8c83e527cbfe056, type: 3}
-  hitsRequired: 4
+  breakTime: 2
+  animationInterval: 0.4
 --- !u!61 &331719746
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2239,8 +2240,7 @@ Transform:
   - {fileID: 1723960308}
   - {fileID: 477487704}
   - {fileID: 992189957}
-  - {fileID: 2577734}
-  - {fileID: 803311222}
+  - {fileID: 2072558203}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &358199801 stripped
@@ -2911,7 +2911,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TreeInteract
   animator: {fileID: 493836587}
   woodPrefab: {fileID: 8997705771300099511, guid: 22def9fe063b37846a7473c90c17837a, type: 3}
-  hitsRequired: 3
+  breakTime: 2
+  animationInterval: 0.4
 --- !u!95 &493836587
 Animator:
   serializedVersion: 7
@@ -33178,50 +33179,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: -0.25002}
   m_SizeDelta: {x: 814, y: 508.5}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &803311221
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 803311222}
-  - component: {fileID: 803311223}
-  m_Layer: 0
-  m_Name: SpawnPointManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &803311222
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803311221}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 339133835}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &803311223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803311221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5353b753732013479af61515330cef9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpawnManager
 --- !u!1 &839441173
 GameObject:
   m_ObjectHideFlags: 0
@@ -33456,7 +33413,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TreeInteract
   animator: {fileID: 885771926}
   woodPrefab: {fileID: 8997705771300099511, guid: 22def9fe063b37846a7473c90c17837a, type: 3}
-  hitsRequired: 3
+  breakTime: 2
+  animationInterval: 0.4
 --- !u!95 &885771926
 Animator:
   serializedVersion: 7
@@ -33804,7 +33762,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TreeInteract
   animator: {fileID: 930582800}
   woodPrefab: {fileID: 8997705771300099511, guid: 22def9fe063b37846a7473c90c17837a, type: 3}
-  hitsRequired: 3
+  breakTime: 2
+  animationInterval: 0.4
 --- !u!95 &930582800
 Animator:
   serializedVersion: 7
@@ -34084,7 +34043,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &948071999
 Transform:
   m_ObjectHideFlags: 0
@@ -37729,7 +37688,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::TreeInteract
   animator: {fileID: 1352772588}
   woodPrefab: {fileID: 8997705771300099511, guid: 22def9fe063b37846a7473c90c17837a, type: 3}
-  hitsRequired: 3
+  breakTime: 2
+  animationInterval: 0.4
 --- !u!95 &1352772588
 Animator:
   serializedVersion: 7
@@ -38420,7 +38380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RockInteract
   animator: {fileID: 1439909563}
   stonePrefab: {fileID: 2907335903635767330, guid: dd034a9266a7a5d4f8c83e527cbfe056, type: 3}
-  hitsRequired: 4
+  breakTime: 2
+  animationInterval: 0.4
 --- !u!61 &1439909562
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -39100,7 +39061,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RockInteract
   animator: {fileID: 1480387763}
   stonePrefab: {fileID: 2907335903635767330, guid: dd034a9266a7a5d4f8c83e527cbfe056, type: 3}
-  hitsRequired: 4
+  breakTime: 2
+  animationInterval: 0.4
 --- !u!61 &1480387762
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52597,6 +52559,51 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.9691982, y: 0.68681145}
   m_EdgeRadius: 0
+--- !u!1 &1582125374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1582125376}
+  - component: {fileID: 1582125375}
+  m_Layer: 0
+  m_Name: CaveExitSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1582125375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582125374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e561461effa71aa439c988c9aa460ea6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnPoint
+  spawnPointID: CaveExitSpawn
+--- !u!4 &1582125376
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582125374}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 44.5, y: 48.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1630293643 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1532958371980318630, guid: a4ecb3875bcc78c479b8fcd3f6b43877, type: 3}
@@ -52784,7 +52791,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RockInteract
   animator: {fileID: 1654397348}
   stonePrefab: {fileID: 2907335903635767330, guid: dd034a9266a7a5d4f8c83e527cbfe056, type: 3}
-  hitsRequired: 4
+  breakTime: 2
+  animationInterval: 0.4
 --- !u!61 &1654397347
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -52945,7 +52953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1668752391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -117993,7 +118001,7 @@ Transform:
   m_GameObject: {fileID: 1855774415}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.46, y: 6.46, z: 0}
+  m_LocalPosition: {x: 11.48, y: 4.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -118373,7 +118381,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::RockInteract
   animator: {fileID: 1919184549}
   stonePrefab: {fileID: 2907335903635767330, guid: dd034a9266a7a5d4f8c83e527cbfe056, type: 3}
-  hitsRequired: 4
+  breakTime: 2
+  animationInterval: 0.4
 --- !u!61 &1919184548
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -119110,6 +119119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GridMovement
   gridSize: 1
   moveSpeed: 5
+  moveDelay: 0.15
   blockingLayers:
     serializedVersion: 2
     m_Bits: 192
@@ -119373,6 +119383,50 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1532958371980318630, guid: a4ecb3875bcc78c479b8fcd3f6b43877, type: 3}
   m_PrefabInstance: {fileID: 275685947}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2072558202
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2072558203}
+  - component: {fileID: 2072558204}
+  m_Layer: 0
+  m_Name: PlayerSpawnManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2072558203
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072558202}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -219.9461, y: -2.72863, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 339133835}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2072558204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2072558202}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a51f039f2fbfc74db6c1e533f9e6557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerSpawnManager
 --- !u!1 &2074132233
 GameObject:
   m_ObjectHideFlags: 0
@@ -120079,13 +120133,15 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 138551097}
+  - {fileID: 2577734}
   - {fileID: 151832057}
   - {fileID: 1558572722}
   - {fileID: 2038565157}
   - {fileID: 2044318875}
-  - {fileID: 339133835}
   - {fileID: 1956527067}
   - {fileID: 315120455}
   - {fileID: 1668752394}
   - {fileID: 1855774419}
   - {fileID: 215060651}
+  - {fileID: 1582125376}
+  - {fileID: 339133835}

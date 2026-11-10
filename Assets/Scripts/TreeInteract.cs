@@ -6,9 +6,12 @@ public class TreeInteract : MonoBehaviour
     public Animator animator;
     public GameObject woodPrefab;
 
-    public int hitsRequired = 3;
+    public float breakTime = 2f;
 
-    private int hits = 0;
+    public float animationInterval = 0.4f;
+
+    private float currentBreakTime;
+    private float animationTimer;
 
     private bool destroyed;
 
@@ -17,11 +20,12 @@ public class TreeInteract : MonoBehaviour
         if (destroyed)
             return;
 
-        if (!Keyboard.current.eKey.wasPressedThisFrame)
-            return;
-
         if (ToolManager.Instance.selectedTool != ToolType.Axe)
+        {
+            currentBreakTime = 0f;
+            animationTimer = 0f;
             return;
+        }
 
         GameObject player =
             GameObject.FindGameObjectWithTag("Player");
@@ -35,13 +39,33 @@ public class TreeInteract : MonoBehaviour
                 transform.position);
 
         if (distance > 1.5f)
+        {
+            currentBreakTime = 0f;
+            animationTimer = 0f;
             return;
+        }
 
-        hits++;
+        if (!Keyboard.current.eKey.isPressed)
+        {
+            currentBreakTime = 0f;
+            animationTimer = 0f;
+            return;
+        }
 
-        animator.SetTrigger("Break");
+        currentBreakTime += Time.deltaTime;
+        animationTimer += Time.deltaTime;
 
-        if (hits >= hitsRequired)
+        if (animationTimer >= animationInterval)
+        {
+            animationTimer = 0f;
+
+            if (animator != null)
+            {
+                animator.SetTrigger("Break");
+            }
+        }
+
+        if (currentBreakTime >= breakTime)
         {
             destroyed = true;
 

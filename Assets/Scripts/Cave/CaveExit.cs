@@ -6,6 +6,8 @@ public class CaveExit : MonoBehaviour
 {
     public string exitSceneName;
 
+    public string spawnPointID = "CaveExit";
+
     private bool playerNearby;
 
     private void Update()
@@ -15,6 +17,12 @@ public class CaveExit : MonoBehaviour
 
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
+            if (SceneTransitionManager.Instance != null)
+            {
+                SceneTransitionManager.Instance.spawnPointID =
+                    spawnPointID;
+            }
+
             SceneManager.LoadScene(exitSceneName);
         }
     }

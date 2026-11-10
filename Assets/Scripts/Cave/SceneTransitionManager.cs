@@ -8,6 +8,11 @@ public class SceneTransitionManager : MonoBehaviour
 
     private void Awake()
     {
+        if (transform.parent != null)
+        {
+            transform.SetParent(null);
+        }
+
         if (Instance == null)
         {
             Instance = this;

@@ -4,8 +4,8 @@ using UnityEngine.InputSystem;
 public class GridMovement : MonoBehaviour
 {
     public float gridSize = 1f;
-
     public float moveSpeed = 5f;
+    public float moveDelay = 0.15f;
 
     public LayerMask blockingLayers;
 
@@ -13,6 +13,7 @@ public class GridMovement : MonoBehaviour
         new Vector2(-0.5f, 0.5f);
 
     private bool moving;
+    private float moveTimer;
 
     private Vector3 targetPosition;
 
@@ -46,23 +47,30 @@ public class GridMovement : MonoBehaviour
             return;
         }
 
+        moveTimer -= Time.deltaTime;
+
+        if (moveTimer > 0f)
+            return;
+
         Vector2 direction = Vector2.zero;
 
-        if (Keyboard.current.wKey.wasPressedThisFrame)
+        if (Keyboard.current.wKey.isPressed)
             direction = Vector2.up;
 
-        else if (Keyboard.current.sKey.wasPressedThisFrame)
+        else if (Keyboard.current.sKey.isPressed)
             direction = Vector2.down;
 
-        else if (Keyboard.current.aKey.wasPressedThisFrame)
+        else if (Keyboard.current.aKey.isPressed)
             direction = Vector2.left;
 
-        else if (Keyboard.current.dKey.wasPressedThisFrame)
+        else if (Keyboard.current.dKey.isPressed)
             direction = Vector2.right;
 
         if (direction != Vector2.zero)
         {
             TryMove(direction);
+
+            moveTimer = moveDelay;
         }
     }
 
