@@ -6,11 +6,11 @@ public class ChestInteract : MonoBehaviour
     public ChestData chestData;
 
     public GameObject chestUI;
+    public GameObject inventoryUI;
 
     public Animator animator;
 
     private bool playerNearby;
-
     private bool opened;
 
     private void Update()
@@ -28,7 +28,15 @@ public class ChestInteract : MonoBehaviour
     {
         opened = !opened;
 
-        chestUI.SetActive(opened);
+        if (chestUI != null)
+        {
+            chestUI.SetActive(opened);
+        }
+
+        if (inventoryUI != null)
+        {
+            inventoryUI.SetActive(opened);
+        }
 
         if (animator != null)
         {
@@ -50,12 +58,16 @@ public class ChestInteract : MonoBehaviour
             return;
 
         playerNearby = false;
-
         opened = false;
 
         if (chestUI != null)
         {
             chestUI.SetActive(false);
+        }
+
+        if (inventoryUI != null)
+        {
+            inventoryUI.SetActive(false);
         }
 
         if (animator != null)

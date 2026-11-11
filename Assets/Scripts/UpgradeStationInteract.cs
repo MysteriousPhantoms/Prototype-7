@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class UpgradeStationInteract : MonoBehaviour
 {
     public GameObject upgradeUI;
+    public GameObject inventoryUI;
 
     public Animator animator;
 
@@ -25,7 +26,15 @@ public class UpgradeStationInteract : MonoBehaviour
     {
         opened = !opened;
 
-        upgradeUI.SetActive(opened);
+        if (upgradeUI != null)
+        {
+            upgradeUI.SetActive(opened);
+        }
+
+        if (inventoryUI != null)
+        {
+            inventoryUI.SetActive(opened);
+        }
 
         if (animator != null)
         {
@@ -43,18 +52,25 @@ public class UpgradeStationInteract : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (!other.CompareTag("Player"))
+            return;
+
+        playerNearby = false;
+        opened = false;
+
+        if (upgradeUI != null)
         {
-            playerNearby = false;
-
-            opened = false;
-
             upgradeUI.SetActive(false);
+        }
 
-            if (animator != null)
-            {
-                animator.SetBool("Open", false);
-            }
+        if (inventoryUI != null)
+        {
+            inventoryUI.SetActive(false);
+        }
+
+        if (animator != null)
+        {
+            animator.SetBool("Open", false);
         }
     }
 }
