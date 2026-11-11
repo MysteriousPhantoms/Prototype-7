@@ -18,6 +18,9 @@ public class ItemData : ScriptableObject
 
     [Header("Tool")]
     public ToolType toolType;
+
+    [Header("Tool Tier")]
+    public ToolTier toolTier;
 }
 
 public enum ItemType
@@ -32,4 +35,14 @@ public enum ToolType
     None,
     Axe,
     Pickaxe
+}
+
+public enum ToolTier
+{
+    None,
+    Wood,
+    Stone,
+    Iron,
+    Gold,
+    Diamond
 }

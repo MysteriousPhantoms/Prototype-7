@@ -18,3 +18,4 @@ MonoBehaviour:
   maxStack: 99
   itemType: 0
   toolType: 0
+  toolTier: 0

@@ -6,6 +6,8 @@ public class ToolManager : MonoBehaviour
 
     public ToolType selectedTool = ToolType.None;
 
+    public ToolTier selectedToolTier = ToolTier.None;
+
     private InventorySlot currentSelectedSlot;
 
     private void Awake()
@@ -28,7 +30,7 @@ public class ToolManager : MonoBehaviour
         if (item.itemType != ItemType.Tool)
             return;
 
-        // Click selected tool again = unequip
+        // Clicking same tool again unequips
         if (currentSelectedSlot == slot)
         {
             currentSelectedSlot.Deselect();
@@ -36,6 +38,7 @@ public class ToolManager : MonoBehaviour
             currentSelectedSlot = null;
 
             selectedTool = ToolType.None;
+            selectedToolTier = ToolTier.None;
 
             Debug.Log("Tool Unequipped");
 
@@ -52,8 +55,13 @@ public class ToolManager : MonoBehaviour
         currentSelectedSlot.Select();
 
         selectedTool = item.toolType;
+        selectedToolTier = item.toolTier;
 
-        Debug.Log("Selected Tool: " + selectedTool);
+        Debug.Log(
+            "Selected Tool: " +
+            selectedTool +
+            " | Tier: " +
+            selectedToolTier);
     }
 
     public void UnequipTool()
@@ -66,6 +74,7 @@ public class ToolManager : MonoBehaviour
         }
 
         selectedTool = ToolType.None;
+        selectedToolTier = ToolTier.None;
 
         Debug.Log("Tool Unequipped");
     }
