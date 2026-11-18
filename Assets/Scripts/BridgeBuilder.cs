@@ -6,27 +6,19 @@ public class BridgeBuilder : MonoBehaviour
     public GameObject bridgeToBuild;
     public GameObject bridgeBlocker;
 
-    public ItemData woodItem;
+    [Header("Required Resource")]
+    public ItemData requiredItem;
 
-    public int woodCost = 1;
+    public int requiredAmount = 1;
+
+    private bool playerNearby;
 
     private void Update()
     {
+        if (!playerNearby)
+            return;
+
         if (!Keyboard.current.eKey.wasPressedThisFrame)
-            return;
-
-        GameObject player =
-            GameObject.FindGameObjectWithTag("Player");
-
-        if (player == null)
-            return;
-
-        float distance =
-            Vector2.Distance(
-                player.transform.position,
-                transform.position);
-
-        if (distance > 1.5f)
             return;
 
         InventoryManager inventory =
@@ -35,47 +27,69 @@ public class BridgeBuilder : MonoBehaviour
         if (inventory == null)
             return;
 
-        InventoryItem woodStack = null;
+        int totalResources = 0;
 
         foreach (InventorySlot slot in inventory.inventorySlots)
         {
             if (slot.currentItem != null &&
-                slot.currentItem.item == woodItem)
+                slot.currentItem.item == requiredItem)
             {
-                woodStack = slot.currentItem;
-                break;
+                totalResources +=
+                    slot.currentItem.count;
             }
         }
 
-        if (woodStack == null)
+        if (totalResources < requiredAmount)
         {
-            Debug.Log("No Wood Found");
+            Debug.Log(
+                "Need " +
+                requiredAmount +
+                " " +
+                requiredItem.itemName);
+
             return;
         }
 
-        if (woodStack.count < woodCost)
+        int remainingCost =
+            requiredAmount;
+
+        foreach (InventorySlot slot in inventory.inventorySlots)
         {
-            Debug.Log("Not Enough Wood");
-            return;
-        }
+            if (slot.currentItem == null)
+                continue;
 
-        woodStack.count -= woodCost;
-        woodStack.RefreshCount();
+            if (slot.currentItem.item != requiredItem)
+                continue;
 
-        if (woodStack.count <= 0)
-        {
-            InventorySlot slot =
-                woodStack.GetComponentInParent<InventorySlot>();
+            InventoryItem stack =
+                slot.currentItem;
 
-            if (slot != null)
+            int removeAmount =
+                Mathf.Min(
+                    stack.count,
+                    remainingCost);
+
+            stack.count -= removeAmount;
+
+            stack.RefreshCount();
+
+            remainingCost -= removeAmount;
+
+            if (stack.count <= 0)
             {
                 slot.currentItem = null;
+
+                Destroy(stack.gameObject);
             }
 
-            Destroy(woodStack.gameObject);
+            if (remainingCost <= 0)
+                break;
         }
 
-        bridgeToBuild.SetActive(true);
+        if (bridgeToBuild != null)
+        {
+            bridgeToBuild.SetActive(true);
+        }
 
         if (bridgeBlocker != null)
         {
@@ -83,5 +97,21 @@ public class BridgeBuilder : MonoBehaviour
         }
 
         Destroy(gameObject);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerNearby = true;
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerNearby = false;
+        }
     }
 }

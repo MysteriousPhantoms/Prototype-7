@@ -1123,8 +1123,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BridgeBuilder
   bridgeToBuild: {fileID: 750977949}
   bridgeBlocker: {fileID: 2086824857}
-  woodItem: {fileID: 11400000, guid: a55a7175466550645805bffe501581b7, type: 2}
-  woodCost: 4
+  requiredItem: {fileID: 11400000, guid: a55a7175466550645805bffe501581b7, type: 2}
+  requiredAmount: 4
 --- !u!61 &128814976
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1159,7 +1159,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 3.4733295, y: -0.68121815}
+  m_Offset: {x: 3.4733295, y: -0.7578554}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1169,7 +1169,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0088997, y: 0.3301983}
+  m_Size: {x: 1.0088997, y: 0.48347282}
   m_EdgeRadius: 0
 --- !u!1 &136775310
 GameObject:
@@ -90893,8 +90893,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BridgeBuilder
   bridgeToBuild: {fileID: 1638463515}
   bridgeBlocker: {fileID: 502356869}
-  woodItem: {fileID: 11400000, guid: a55a7175466550645805bffe501581b7, type: 2}
-  woodCost: 5
+  requiredItem: {fileID: 11400000, guid: a55a7175466550645805bffe501581b7, type: 2}
+  requiredAmount: 5
 --- !u!61 &895746692
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -90929,7 +90929,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 3.4733295, y: -0.68121815}
+  m_Offset: {x: 3.4733295, y: -0.7581215}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -90939,7 +90939,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0088997, y: 0.3301983}
+  m_Size: {x: 1.0088997, y: 0.48400497}
   m_EdgeRadius: 0
 --- !u!1001 &896351741
 PrefabInstance:
@@ -93178,8 +93178,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BridgeBuilder
   bridgeToBuild: {fileID: 1710022017}
   bridgeBlocker: {fileID: 1506089488}
-  woodItem: {fileID: 11400000, guid: a55a7175466550645805bffe501581b7, type: 2}
-  woodCost: 3
+  requiredItem: {fileID: 11400000, guid: a55a7175466550645805bffe501581b7, type: 2}
+  requiredAmount: 3
 --- !u!61 &1059464228
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -93214,7 +93214,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.89640814, y: -0.33631754}
+  m_Offset: {x: 0.7678096, y: -0.33631754}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -93224,7 +93224,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.2133416, y: 1.0199995}
+  m_Size: {x: 0.47053856, y: 1.0199995}
   m_EdgeRadius: 0
 --- !u!1 &1060118942
 GameObject:
@@ -97355,8 +97355,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BridgeBuilder
   bridgeToBuild: {fileID: 551107771}
   bridgeBlocker: {fileID: 1769097425}
-  woodItem: {fileID: 11400000, guid: a55a7175466550645805bffe501581b7, type: 2}
-  woodCost: 27
+  requiredItem: {fileID: 11400000, guid: a55a7175466550645805bffe501581b7, type: 2}
+  requiredAmount: 27
 --- !u!61 &1602795978
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -97391,7 +97391,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 3.4733295, y: -0.68121815}
+  m_Offset: {x: 3.4733295, y: -0.59939957}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -97401,7 +97401,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0088997, y: 0.3301983}
+  m_Size: {x: 1.0088997, y: 0.49383545}
   m_EdgeRadius: 0
 --- !u!1 &1603506104
 GameObject:
@@ -99834,8 +99834,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BridgeBuilder
   bridgeToBuild: {fileID: 205067353}
   bridgeBlocker: {fileID: 2126339416}
-  woodItem: {fileID: 11400000, guid: a55a7175466550645805bffe501581b7, type: 2}
-  woodCost: 4
+  requiredItem: {fileID: 11400000, guid: a55a7175466550645805bffe501581b7, type: 2}
+  requiredAmount: 4
 --- !u!61 &1770462881
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -99870,7 +99870,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 3.471449, y: -0.34740233}
+  m_Offset: {x: 3.471449, y: -0.60174227}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -99880,7 +99880,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0051384, y: 0.9978299}
+  m_Size: {x: 1.0051384, y: 0.48915005}
   m_EdgeRadius: 0
 --- !u!114 &1775577773 stripped
 MonoBehaviour:
@@ -102249,7 +102249,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 3.4464722, y: 4.811925}
+  m_Offset: {x: 3.4464722, y: 4.9025183}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -102259,7 +102259,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0146332, y: 0.35723686}
+  m_Size: {x: 1.0146332, y: 0.53842354}
   m_EdgeRadius: 0
 --- !u!61 &1952781814
 BoxCollider2D:
@@ -102295,7 +102295,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 7.1633415, y: 2.1316156}
+  m_Offset: {x: 7.266014, y: 2.1316156}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -102305,7 +102305,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.31684113, y: 1.0136204}
+  m_Size: {x: 0.5221863, y: 1.0136204}
   m_EdgeRadius: 0
 --- !u!61 &1952781815
 BoxCollider2D:
@@ -102367,8 +102367,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BridgeBuilder
   bridgeToBuild: {fileID: 1998252052}
   bridgeBlocker: {fileID: 1370432090}
-  woodItem: {fileID: 11400000, guid: a55a7175466550645805bffe501581b7, type: 2}
-  woodCost: 10
+  requiredItem: {fileID: 11400000, guid: a55a7175466550645805bffe501581b7, type: 2}
+  requiredAmount: 10
 --- !u!61 &1952781817
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -102403,7 +102403,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 3.4733295, y: -0.68121815}
+  m_Offset: {x: 3.4733295, y: -0.7416134}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -102413,7 +102413,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1.0088997, y: 0.3301983}
+  m_Size: {x: 1.0088997, y: 0.45098877}
   m_EdgeRadius: 0
 --- !u!114 &1959635182 stripped
 MonoBehaviour:
@@ -105248,7 +105248,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0.25227356, y: -1.3063033}
+  m_Offset: {x: 0.25227356, y: -1.3121644}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -105258,7 +105258,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.9955101, y: 3.9803376}
+  m_Size: {x: 0.9955101, y: 3.99206}
   m_EdgeRadius: 0
 --- !u!114 &2127348568 stripped
 MonoBehaviour:
