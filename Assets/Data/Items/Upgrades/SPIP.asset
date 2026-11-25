@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6ca5b22bdd863e42a1fd77022c2d45b, type: 3}
+  m_Name: SPIP
+  m_EditorClassIdentifier: Assembly-CSharp::UpgradeRecipe
+  toolInput: {fileID: 11400000, guid: c23f423aaf0f3fc49a671d02be11bf2f, type: 2}
+  resourceInput: {fileID: 11400000, guid: a20d3bb63ce15e741addab7fdeb4c092, type: 2}
+  resourceCost: 6
+  resultItem: {fileID: 11400000, guid: f6f22744fb102c24b8556ec15293c888, type: 2}

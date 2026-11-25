@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc23ceb3342138f49a3769e438ecf4ed, type: 3}
   m_Name: Chest_CI_1
   m_EditorClassIdentifier: Assembly-CSharp::ChestData
-  items: []
-  amounts: 
+  items:
+  - {fileID: 11400000, guid: 64540245dc156fc4785a0ed6003a2412, type: 2}
+  amounts: 06000000

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeRecipe
   toolInput: {fileID: 11400000, guid: 092a32097da6f494eb213267097d2b3c, type: 2}
   resourceInput: {fileID: 11400000, guid: a20d3bb63ce15e741addab7fdeb4c092, type: 2}
-  resourceCost: 10
+  resourceCost: 6
   resultItem: {fileID: 11400000, guid: 682e69d5db0c1b54abbd9bac70b0d1cf, type: 2}
